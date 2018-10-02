@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="-175 -175 350 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="dropshadow" x="-40%" y="-40%" width="180%" height="180%">
+        <feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
+        <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="5" />
+        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+  <path fill="none" stroke="#000" stroke-width="28px" stroke-linecap="buff" stroke-dasharray="2, 6" d="M 150,0 A 150, 150 0 0,1 106,106"/>
+  <path fill="none" stroke="#F5A623" stroke-width="28px" stroke-linecap="buff" stroke-dasharray="2, 6" stroke-dashoffset="3" d="M -106, 106A 150, 150 0 1,1 150,0"/>
+  <circle cx="0" cy="0" r="140" fill="#FEFEFE" filter="url(#dropshadow)"></circle>
+</svg>

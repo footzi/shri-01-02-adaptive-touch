@@ -1,0 +1,30 @@
+@import "./reset.css";
+@import "./common.css";
+@import "./header.css";
+@import "./nav.css";
+@import "./footer.css";
+
+main {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+article {
+    /* align-self: flex-start; */
+}
+
+.b {
+    grid-column: 4 span;
+    grid-row: 3 span;
+}
+
+.m {
+    grid-column: 3 span;
+    grid-row: 2 span;
+}
+
+.s {
+    grid-column: 2 span;
+}

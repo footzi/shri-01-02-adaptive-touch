@@ -1,0 +1,44 @@
+.b-nav {
+    margin-left: 52px;
+}
+
+.b-nav__list {
+    display: flex;
+}
+
+.b-nav__item {
+    margin-right: 28px;
+}
+
+.b-nav__item:last-child {
+    margin-right: 0;
+}
+
+.b-nav__link {
+    transition: 0.4s ease opacity;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333333;
+    opacity: 0.6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.b-nav__link:active {
+    color: #333333;
+    opacity: 0.6;
+}
+
+.b-nav__link.is-active {
+    color: #333333;
+}
+
+@media screen and (max-width: 669px) {
+    .b-nav__list {
+        flex-direction: column;
+    }
+
+    .b-nav__item {
+        margin-bottom: 10px;
+    }
+}
