@@ -1,0 +1,36 @@
+.l-header {
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f7f7f7;
+}
+
+.l-main {
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 35px;
+    margin-bottom: 100px;
+}
+
+.l-title {
+    margin-top: 34px;
+    margin-bottom: 32px;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: bold;
+}
+
+.l-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+}
+
+.l-footer {
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

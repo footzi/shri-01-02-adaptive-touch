@@ -1,3 +1,37 @@
+@font-face {
+    font-family: "Arial-MT";
+    src: url("../fonts/bold/arialbold.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/bold/arialbold.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */ url("../fonts/bold/arialbold.otf") format("opentype"),
+        /* Open Type Font */ url("./fonts/bold/arialbold.svg") format("svg"),
+        /* Legacy iOS */ url("../fonts/bold/arialbold.ttf") format("truetype"),
+        /* Safari, Android, iOS */ url("../fonts/bold/arialbold.woff")
+            format("woff"),
+        /* Modern Browsers */ url("../fonts/bold/arialbold.woff2")
+            format("woff2"); /* Modern Browsers */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Arial-MT";
+    src: url("../fonts/regular/arial.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/regular/arial.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */ url("../fonts/regular/arial.otf") format("opentype"),
+        /* Open Type Font */ url("../fonts/regular/arial.svg") format("svg"),
+        /* Legacy iOS */ url("../fonts/regular/arial.ttf") format("truetype"),
+        /* Safari, Android, iOS */ url("../fonts/regular/arial.woff")
+            format("woff"),
+        /* Modern Browsers */ url("../fonts/regular/arial.woff2")
+            format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial-MT, Arial, Helvetica, sans-serif;
+}
+
+b {
+    font-weight: bold;
 }

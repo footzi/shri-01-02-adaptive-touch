@@ -45,14 +45,14 @@ gulp.task("styles", function() {
 //scripts
 gulp.task("scripts", function() {
     return gulp
-        .src(["src/scripts/**/*.js"])
+        .src(["scripts/**/*.js"])
         .pipe(
             webpack({
                 entry: {
-                    app: __dirname + "/src/scripts/app.js"
+                    app: __dirname + "/scripts/app.js"
                 },
                 output: {
-                    filename: "[name].js"
+                    filename: "build.js"
                 },
                 module: {
                     rules: [
@@ -79,7 +79,7 @@ gulp.task("scripts", function() {
                 message: "<%= error.message %>"
             })
         )
-        .pipe(gulp.dest("public"))
+        .pipe(gulp.dest("./"))
         .pipe(browserSync.stream());
 });
 
@@ -87,7 +87,7 @@ gulp.task("scripts", function() {
 gulp.task("browser-sync", function() {
     browserSync.init({
         server: {
-            baseDir: "public"
+            baseDir: "./"
         },
         port: 8080,
         open: false,
@@ -97,9 +97,9 @@ gulp.task("browser-sync", function() {
 
 //watch
 gulp.task("watch", ["browser-sync"], function() {
-    gulp.watch("src/views/**/*", ["pug"]);
-    gulp.watch("src/styles/**/*.scss", ["styles"]);
-    gulp.watch("src/scripts/**/*", ["scripts"]);
+    // gulp.watch("src/views/**/*", ["pug"]);
+    // gulp.watch("src/styles/**/*.scss", ["styles"]);
+    gulp.watch("scripts/**/*", ["scripts"]);
 });
 
 gulp.task("default", ["watch"]);
