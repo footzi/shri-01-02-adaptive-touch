@@ -1,0 +1,8 @@
+.b-camera {
+    grid-column: 2 span;
+}
+
+.b-camera__video {
+    /* width: 100%; */
+    object-fit: cover;
+}
