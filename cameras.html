@@ -34,49 +34,70 @@
                 <nav class="b-nav">
                     <ul class="b-nav__list">
                         <li class="b-nav__item"><a class="b-nav__link is-active" href="#">Cводка</a></li>
-                        <li class="b-nav__item"> <a class="b-nav__link" href="#">Устройства</a></li>                                                                                                                                            
+                        <li class="b-nav__item"> <a class="b-nav__link" href="#">Устройства</a></li>
                         <li class="b-nav__item"><a class="b-nav__link" href="#">Cценарии</a></li>
-                    </ul>                                                                                                                                                                                                                                       
+                    </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <main class="l-cameras">
-        <article class="b-camera">
-            <video muted id="camera-1" class="b-camera__video"></video>                                                                                                                                                           
-        </article>
-        <article class="b-camera">
-            <video id="camera-2" class="b-camera__video"></video>
-        </article>
-        <article class="b-camera">
-            <video id="camera-3" class="b-camera__video"></video>
-        </article>
-        <article class="b-camera">
-            <video id="camera-4" class="b-camera__video"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ></video>
-        </article>
-    </main>
-    <div class="b-popup">
-        <div class="b-popup__content">
-            <canvas></canvas>
+    <main class="l-main">
+        <div class="l-cameras">
+            <article class="b-camera">
+                <video muted id="camera-1" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-2" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-3" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-4" class="b-camera__video"></video>
+            </article>
         </div>
-        <div class="b-popup__controls">
-            <div class="b-slider b-slider_theme_light">
-                <input type="range" class="b-slider__range" min="0" max="100" name="brightness">
-                <div class="b-slider__value">
-                    <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
-                    <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+       
+        <div class="b-popup">
+            <button class="b-popup__close">Все камеры</button>
+            <div class="b-popup__content">
+                <div class="b-popup__video"> </div>
+                <div class="b-popup__analyzer-wrap">
+                    <div class="b-popup__controls-title">Уровень громкости</div>
+                    <h2 class="b-popup__no-signal">Нет сигнала</h2>
+                    <canvas width="100" height="300" class="b-popup__analyzer"></canvas>
                 </div>
             </div>
-
-            <div class="b-slider b-slider_theme_temp">
-                    <input type="range" class="b-slider__range" min="0" max="100" name="contrast">
-                    <div class="b-slider__value">
-                        <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
-                        <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+           
+            <div class="b-popup__controls">
+                <div class="b-popup__controls-item">
+                    <div class="b-popup__controls-title">Измените яркость</div>
+                    <div class="b-slider b-slider_theme_light">
+                        <input id="brightness" type="range" class="b-slider__range" min="0" max="100" name="brightness">
+                        <div class="b-slider__value">
+                            <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
+                            <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+                        </div>
                     </div>
                 </div>
+
+                <div class="b-popup__controls-item">
+                    <div class="b-popup__controls-title">Измените контрастность</div>
+                    <div class="b-slider b-slider_theme_temp">
+                        <input type="range" class="b-slider__range" min="0" max="100" name="contrast">
+                        <div class="b-slider__value">
+                            <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
+                            <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+                        </div>
+                    </div>
+                </div>
+               
+    
+                
+            </div>
         </div>
-    </div>
+
+    </main>
+    
 
     <footer class="l-footer b-footer">
         <nav class="b-footer__nav">
