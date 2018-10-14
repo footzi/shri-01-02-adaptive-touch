@@ -18,8 +18,8 @@ class Analyzer {
      */
     _addGradient() {
         this.gragient = this.ctx.createLinearGradient(0, 0, 0, 300);
-        this.gragient.addColorStop(1, "#ffe682");
-        this.gragient.addColorStop(0, "#ff9e00");
+        this.gragient.addColorStop(1, '#ffe682');
+        this.gragient.addColorStop(0, '#ff9e00');
     }
 
     /**
@@ -56,10 +56,6 @@ class Analyzer {
     destroy() {;
         this.context = '';
 
-        // при повторном открытии элемента не происходит дисконект
-        this.source.disconnect();
-        this.analyser.disconnect();
-
         cancelAnimationFrame(this.myReq);
     }
 
@@ -80,9 +76,9 @@ class Analyzer {
                 const position = this.result[i];
 
                 if (position) {
-                    this.warning.style.display = "none";
+                    this.warning.style.display = 'none';
                 } else {
-                    this.warning.style.display = "block";
+                    this.warning.style.display = 'block';
                 }
 
                 this.bar.x = i * 12;

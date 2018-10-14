@@ -35,14 +35,12 @@ class Camera {
                     hls.loadSource(url);
                     hls.on(Hls.Events.MANIFEST_PARSED, () => {
                         this._bindEventsVideo(video);
-                        video.play();
                     });
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 video.src ='https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8';
                 video.addEventListener('loadedmetadata', () => {
                     this._bindEventsVideo(video);
-                    video.play();
                 });
             }
         }
@@ -72,6 +70,7 @@ class Camera {
      * Метод открывает камеру и инитит модули фильтра и анализатора
      */
     _open() {
+        this.currentVideo.play();
         this.currentVideo.setAttribute('controls', 'controls');
         this.filter.init(this.currentVideo);
         this.analyzer.init(this.currentVideo);
@@ -84,6 +83,7 @@ class Camera {
      * Метод закрывает камеру и дестроит модули фильтра и анализатора
      */
     _close() {
+        this.currentVideo.pause();
         this.currentVideo.removeAttribute('controls');
         this.currentVideo.style.transform = 'scale(1)';
         this.filter.destroy();

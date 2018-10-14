@@ -1,11 +1,11 @@
 class Filter {
     constructor() {
-        this.wrapper = document.querySelector(".j-filters");
-        this.close = document.querySelector(".j-button-close");
+        this.wrapper = document.querySelector('.j-filters');
+        this.close = document.querySelector('.j-button-close');
         this.rangeBrightness = this.wrapper.querySelector('input[name="brightness"');
         this.rangeContrast = this.wrapper.querySelector('input[name="contrast"');
         // Дефолтное значение для инпутов
-        this.defultInputVal = 50;
+        this.defultInputVal = 50; 
 
         // Дефолтное значение для контрастности и яркости
         this.brightness = 1;
@@ -45,12 +45,12 @@ class Filter {
      * @private
      */
     _bindEvents() {
-        this.rangeBrightness.addEventListener("input", (event) => {
+        this.rangeBrightness.addEventListener('input', (event) => {
             this._calcBrightness(event);
             this._setFilters();
         });
 
-        this.rangeContrast.addEventListener("input", (event) => {
+        this.rangeContrast.addEventListener('input', (event) => {
             this._calcContrast(event);
             this._setFilters();
         });
@@ -61,12 +61,12 @@ class Filter {
      * @private
      */
     _unbindEvents() {
-        this.rangeBrightness.removeEventListener("input", (event) => {
+        this.rangeBrightness.removeEventListener('input', (event) => {
             this._calcBrightness(event);
             this._setFilters();
         });
 
-        this.rangeContrast.removeEventListener("input", (event) => {
+        this.rangeContrast.removeEventListener('input', (event) => {
             this._calcContrast(event);
             this._setFilters();
         });
