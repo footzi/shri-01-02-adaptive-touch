@@ -42,7 +42,10 @@
         </div>
     </header>
     <main class="l-main">
-        <div class="l-cameras">
+        <div class="l-button-close">
+            <button class="b-button j-button-close">Все камеры</button>
+        </div>
+        <div class="l-cameras j-cameras">
             <article class="b-camera">
                 <video muted id="camera-1" class="b-camera__video"></video>
             </article>
@@ -56,21 +59,10 @@
                 <video id="camera-4" class="b-camera__video"></video>
             </article>
         </div>
-       
-        <div class="b-popup">
-            <button class="b-popup__close">Все камеры</button>
-            <div class="b-popup__content">
-                <div class="b-popup__video"> </div>
-                <div class="b-popup__analyzer-wrap">
-                    <div class="b-popup__controls-title">Уровень громкости</div>
-                    <h2 class="b-popup__no-signal">Нет сигнала</h2>
-                    <canvas width="100" height="300" class="b-popup__analyzer"></canvas>
-                </div>
-            </div>
-           
-            <div class="b-popup__controls">
-                <div class="b-popup__controls-item">
-                    <div class="b-popup__controls-title">Измените яркость</div>
+        <div class="l-controls j-controls">
+            <div class="b-filters j-filters">
+                <div class="b-filter__item">
+                    <div class="b-filter__item-title">Измените яркость</div>
                     <div class="b-slider b-slider_theme_light">
                         <input id="brightness" type="range" class="b-slider__range" min="0" max="100" name="brightness">
                         <div class="b-slider__value">
@@ -79,9 +71,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="b-popup__controls-item">
-                    <div class="b-popup__controls-title">Измените контрастность</div>
+                <div class="b-filter__item">
+                    <div class="b-filter__item-title">Измените контрастность</div>
                     <div class="b-slider b-slider_theme_temp">
                         <input type="range" class="b-slider__range" min="0" max="100" name="contrast">
                         <div class="b-slider__value">
@@ -90,14 +81,16 @@
                         </div>
                     </div>
                 </div>
-               
-    
-                
+            </div>
+
+            <div class="b-analyzer j-analyzer">
+                <div class="b-analyzer__title">Уровень громкости</div>
+                <h2 class="b-analyzer__no-signal j-analyzer-no-signal">Нет сигнала</h2>
+                <canvas width="100" height="150" class="j-analyzer__wrap"></canvas>
             </div>
         </div>
-
     </main>
-    
+
 
     <footer class="l-footer b-footer">
         <nav class="b-footer__nav">

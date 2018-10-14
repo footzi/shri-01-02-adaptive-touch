@@ -135,6 +135,16 @@
     .b-article__link:hover {
         opacity: 0.6;
     }
+
+    .l-cameras {
+        height: 768px;
+    }
+
+    .l-controls {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
 }
 
 @media screen and (max-width: 1279px) {

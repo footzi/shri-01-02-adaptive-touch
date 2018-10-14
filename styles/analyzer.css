@@ -1,0 +1,37 @@
+.b-analyzer {
+    transition: .3s ease transform;
+    transform: translateX(150%);
+    flex: 0 0 25%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.b-analyzer__title {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+    height: 100%;
+}
+
+.b-analyzer__no-signal {
+    position: absolute;
+    top: 30px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    color: red;
+    display: block;
+}
+
+.b-analyzer__wrap {
+    width: 320px;
+    height: 150px;
+}
+
+.b-analyzer.is-open {
+    transform: translateX(0);
+}
