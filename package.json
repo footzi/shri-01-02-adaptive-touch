@@ -4,6 +4,7 @@
   "description": "yandex home application",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vladislav.manakov@kelnik.ru",
@@ -13,6 +14,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.6",
+    "express": "^4.16.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
@@ -21,6 +23,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1",
+    "nodemon": "^1.18.4",
     "webpack-stream": "^5.1.0"
   }
 }

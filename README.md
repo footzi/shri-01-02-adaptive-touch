@@ -23,3 +23,18 @@ a) 320-670px - размеры блоков = 6 стобцам
 'rotate' как тач двух пальцев, но один палец неподвижен, а второй изменяет позицию по x.
 
 Тестировалось на android.
+
+
+По 4 заданию.
+1. Исходники лежат в файле 'server.js', запуск 'npm start', сервер поднимится на 'http://localhost:8000'.
+2. По 'http://localhost:8000/status', сервер возвращает время с запуска сервера в виде строки формата hh:mm:ss.
+3. По 'http://localhost:8000/api/events', возвращается неотфильтрованный 'events.json'.
+4. При получении get-параметров вида 'type=***' включает поиск по соответствующим типам событий в 'events.json'.
+
+Пример:
+'http://localhost:8000/api/events?type=critical', вернет массив только 'critical',
+'http://localhost:8000/api/events?type=critical:info', вернет массив 'critical и info'
+
+5. По Get-параметрам типа 'type=critical:info:warn или type=critical:' сервер статус 400 и строку 'incorrect type'.
+6. По всем остальным url сервер вернет 404 и соответствующий html.
+
