@@ -21,14 +21,14 @@ const getTime = () => {
  * @param {string} type - тип из get-параметра
  */
 const filter = (type) => {
-   return data.events.filter((item => type === item.type ? item : false ))
+   return data.events.filter((item => type === item.type))
 }
 
 /**
  * Функция проверяет get-параметры на корректность
  * @param {string} current - текущий get-параметр
  */
-const isCorrectType = (current) => {
+const isIncorrectType = (current) => {
 	return current != 'critical' && current != 'info'
 }
 
@@ -38,11 +38,10 @@ app.get('/status',(req, res) => {
 
 app.get('/api/events',(req, res) => {
     if (Object.keys(req.query)[0] === 'type') {
-        let params = req.query.type;
-        let arrParams = params.split(':');
+        let arrParams = req.query.type.split(':');
         let result = [];
     
-        if (arrParams.some(isCorrectType)) {
+        if (arrParams.some(isIncorrectType)) {
             res.send(400, 'incorrect type');
             return
         }
