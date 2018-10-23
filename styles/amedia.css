@@ -14,6 +14,10 @@
     .b-article_size_small .b-article__about {
         flex-direction: row;
     }
+
+    .b-camera {
+        grid-column: 4 span;
+    }
 }
 
 @media (min-width: 670px) and (max-width: 959px) {
@@ -130,6 +134,16 @@
     .b-article__close:hover,
     .b-article__link:hover {
         opacity: 0.6;
+    }
+
+    .l-cameras {
+        height: 768px;
+    }
+
+    .l-controls {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 }
 

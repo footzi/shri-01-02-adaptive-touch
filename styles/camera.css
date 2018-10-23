@@ -1,0 +1,25 @@
+.b-camera {
+    grid-column: 2 span;
+}
+
+.b-camera__video {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.3s ease all;
+}
+
+.b-camera:nth-child(1) .b-camera__video {
+    transform-origin: 0 0;
+}
+
+.b-camera:nth-child(2) .b-camera__video  {
+    transform-origin: 100% 0;
+}
+
+.b-camera:nth-child(3) .b-camera__video  {
+    transform-origin: 0 100%;
+}
+
+.b-camera:nth-child(4) .b-camera__video  {
+    transform-origin: 100% 100%;
+}

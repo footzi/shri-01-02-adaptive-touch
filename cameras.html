@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="./styles/app.css">
+    <title>Яндекс.Дом</title>
+</head>
+
+<body>
+    <header class="l-header b-header j-mobile-menu">
+        <div class="b-header__logo"><img src="images/yandex-logo.svg" alt="Яндекс дом"></div>
+        <div class="b-header__navigation">
+            <nav class="b-nav">
+                <ul class="b-nav__list">
+                    <li class="b-nav__item"><a class="b-nav__link" href="index.html">Главная</a></li>
+                    <li class="b-nav__item"><a class="b-nav__link is-active" href="cameras.html">Камеры</a></li>
+                    <li class="b-nav__item"><a class="b-nav__link" href="#">Cводка</a></li>
+                    <li class="b-nav__item"> <a class="b-nav__link" href="#">Устройства</a></li>
+                    <li class="b-nav__item"><a class="b-nav__link" href="#">Cценарии</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="b-header__burger j-mobile-menu__open"><img src="icons/burger.svg" alt="Кнопка открытия меню"></div>
+        <div class="b-header__mobile-menu j-mobile-menu__content">
+            <div class="b-header__mobile-menu-top">
+                <div class="b-header__mobile-menu-logo"><img src="images/yandex-logo.svg" alt="Яндекс дом"></div>
+                <div class="b-header__mobile-menu-close j-mobile-menu__close"><img src="icons/close.svg" alt="Закрыть меню"></div>
+            </div>
+            <div class="b-header__mobile-menu-navigation">
+                <nav class="b-nav">
+                    <ul class="b-nav__list">
+                        <li class="b-nav__item"><a class="b-nav__link is-active" href="#">Cводка</a></li>
+                        <li class="b-nav__item"> <a class="b-nav__link" href="#">Устройства</a></li>
+                        <li class="b-nav__item"><a class="b-nav__link" href="#">Cценарии</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="l-main">
+        <div class="l-button-close">
+            <button class="b-button j-button-close">Все камеры</button>
+        </div>
+        <div class="l-cameras j-cameras">
+            <article class="b-camera">
+                <video muted id="camera-1" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-2" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-3" class="b-camera__video"></video>
+            </article>
+            <article class="b-camera">
+                <video id="camera-4" class="b-camera__video"></video>
+            </article>
+        </div>
+        <div class="l-controls j-controls">
+            <div class="b-filters j-filters">
+                <div class="b-filter__item">
+                    <div class="b-filter__item-title">Измените яркость</div>
+                    <div class="b-slider b-slider_theme_light">
+                        <input id="brightness" type="range" class="b-slider__range" min="0" max="100" name="brightness">
+                        <div class="b-slider__value">
+                            <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
+                            <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+                        </div>
+                    </div>
+                </div>
+                <div class="b-filter__item">
+                    <div class="b-filter__item-title">Измените контрастность</div>
+                    <div class="b-slider b-slider_theme_temp">
+                        <input type="range" class="b-slider__range" min="0" max="100" name="contrast">
+                        <div class="b-slider__value">
+                            <img class="b-slider__value-min" src="icons/icon_sun_min.svg" alt="Минимальная мощность освещения">
+                            <img class="b-slider__value-max" src="icons/icon_sun_max.svg" alt="Максимальная мощность освещения">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b-analyzer j-analyzer">
+                <div class="b-analyzer__title">Уровень громкости</div>
+                <h2 class="b-analyzer__no-signal j-analyzer-no-signal">Нет сигнала</h2>
+                <canvas width="100" height="150" class="j-analyzer__wrap"></canvas>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="l-footer b-footer">
+        <nav class="b-footer__nav">
+            <ul class="b-footer__list">
+                <li class="b-footer__item"><a class="b-footer__link" href="#">Помощь</a></li>
+                <li class="b-footer__item"><a class="b-footer__link" href="#">Обратная связь</a></li>
+                <li class="b-footer__item"><a class="b-footer__link" href="#">Разработчикам</a></li>
+                <li class="b-footer__item"><a class="b-footer__link" href="#">Условия использования</a></li>
+                <li class="b-footer__item"><a class="b-footer__link" href="https://docviewer.yandex.ru/view/1130000031416101/?*=UTbGnhLEpPE6lOlj2y1xK3DZ%2BBd7InVybCI6InlhLXdpa2k6Ly93aWtpLWFwaS55YW5kZXgucnUvc2hyaS0yMDE4LWlpL2hvbWV3b3JrL2FkYXB0aXZuYWphLXZqb3JzdGthL2xpY2Vuc2UucGRmIiwidGl0bGUiOiJsaWNlbnNlLnBkZiIsInVpZCI6IjExMzAwMDAwMzE0MTYxMDEiLCJ5dSI6IjYzMTcyODQ2ODE1MzExMjcyNzQiLCJub2lmcmFtZSI6ZmFsc2UsInRzIjoxNTM4ODI2MDkxNTgwfQ%3D%3D">Cсылка
+                        на лицензию</a></li>
+            </ul>
+        </nav>
+        <div class="b-footer__copyright">© 2001–2017 ООО «Яндекс»</div>
+    </footer>
+    <script src="./build.js"></script>
+</body>
+
+</html>

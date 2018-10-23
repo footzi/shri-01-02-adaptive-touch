@@ -12,6 +12,8 @@
     margin-left: auto;
     margin-top: 35px;
     margin-bottom: 100px;
+    overflow: hidden;
+    position: relative;
 }
 
 .l-title {
@@ -33,4 +35,30 @@
     padding-left: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.l-cameras {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.l-button-close {
+    margin-right: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.l-controls {
+    margin-top: 40px;
+}
+
+.l-button-close .b-button {
+    transition: .3s ease transform;
+    transform: translateX(-150%);
+}
+
+.l-button-close .b-button.is-open {
+    transform: translateX(0);
 }
