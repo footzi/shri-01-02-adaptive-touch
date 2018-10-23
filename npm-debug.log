@@ -2,6 +2,7 @@
 1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'ls', '--depth', '0', '--json' ]
 2 info using npm@3.5.2
 3 info using node@v8.10.0
+4 error extraneous: hls.js@0.11.0 /home/vladislav/Documents/Projects/shri-01-adaptive/node_modules/hls.js
 4 error peer dep missing: ajv@^6.0.0, required by ajv-keywords@3.2.0
 4 error peer dep missing: ajv@^6.0.0, required by ajv-keywords@3.2.0
 5 verbose exit [ 1, true ]
