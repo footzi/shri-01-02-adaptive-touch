@@ -1,13 +1,17 @@
+import { Request, Response } from 'express';
+
 const express = require('express');
 const data = require('./events.json');
 const app = express();
-let startTime = '';
+
+let startTime: Date;
 
 /**
  * Функция возвращает время с момента запуска сервера.
  */
 const getTime = () => {
     const currentTime = new Date();
+
     const diff = currentTime.getTime() - startTime.getTime();
     const seconds = ('0' + Math.floor(diff / 1000 % 60).toString()).slice(-2);
     const minutes = ('0' + Math.floor(diff / 60000 % 60).toString()).slice(-2);
@@ -20,29 +24,32 @@ const getTime = () => {
  * Функция фильтрует event.json по типу и возвращает массив.
  * @param {string} type - тип из get-параметра
  */
-const filter = (type) => {
-   return data.events.filter((item => type === item.type))
+const filter = (type: string) => {
+     //@ts-ignore
+   return data.events.filter(((item) => type === item.type))
 }
 
 /**
  * Функция проверяет get-параметры на корректность
  * @param {string} current - текущий get-параметр
  */
-const isIncorrectType = (current) => {
+const isIncorrectType = (current: string) => {
 	return current != 'critical' && current != 'info'
 }
 
-app.get('/status',(req, res) => {
-    res.send(200, getTime());
+app.get('/status',(req: Request, res: Response) => {
+    res.status(200);
+    res.send(getTime());
 })
 
-app.get('/api/events',(req, res) => {
+app.get('/api/events',(req: Request, res: Response) => {
     if (Object.keys(req.query)[0] === 'type') {
         let arrParams = req.query.type.split(':');
-        let result = [];
+        let result: string[] = [];
     
         if (arrParams.some(isIncorrectType)) {
-            res.send(400, 'incorrect type');
+            res.status(400);
+            res.send('incorrect type');
             return
         }
     
@@ -50,15 +57,18 @@ app.get('/api/events',(req, res) => {
             result.push(...filter(item));
         })
         
-        res.send(200, result);
+        res.status(200);
+        res.send(result);
 
     } else {
-        res.send(200, data);
+        res.status(200);
+        res.send(data);
     }
 })
 
-app.get('*', (req, res) => {
-    res.send('<h1>Page not found</h1>', 404);
+app.get('*', (req :Request, res: Response) => {
+    res.status(404);
+    res.send('<h1>Page not found</h1>');
   });
 
 app.listen(8000, () => {

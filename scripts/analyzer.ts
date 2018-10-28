@@ -64,13 +64,7 @@ class Analyzer {
 
         const AudioContext = window.AudioContext || window.webkitAudioContext;
        
-
         if (AudioContext) {
-
-            // if (!this.context) {
-            //     this.context = new AudioContext();
-            // }
-
             this.analyser = this.context.createAnalyser();
             this.analyser.fftSize = 256;
             
@@ -90,8 +84,6 @@ class Analyzer {
      * Метод должен закрывать все существующие коннекты к медиаэлементам
      */
     public destroy() {
-        //this.context = '';
-
         cancelAnimationFrame(this.myReq);
     }
 
