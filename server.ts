@@ -1,12 +1,18 @@
 import { Request, Response } from 'express';
 
 const express = require('express');
-const data = require('./events.json');
+const data = require('./server/events.json');
+const fallback = require('express-history-api-fallback')
+const path = require('path');
 const app = express();
+
+
+app.use(express.static(__dirname + '/'));
+app.use(fallback(__dirname + '/index.html'))
 
 let startTime: Date;
 
-/**
+/**  
  * Функция возвращает время с момента запуска сервера.
  */
 const getTime = () => {
@@ -69,7 +75,7 @@ app.get('/api/events',(req: Request, res: Response) => {
 app.get('*', (req :Request, res: Response) => {
     res.status(404);
     res.send('<h1>Page not found</h1>');
-  });
+});
 
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!');

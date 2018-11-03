@@ -49,7 +49,7 @@ gulp.task("scripts", function() {
         .pipe(
             webpack({
                 entry: {
-                    app: __dirname + "/scripts/app.ts"
+                    app: __dirname + "/scripts/app/app.ts"
                 },
                 output: {
                     filename: "build.js"
@@ -107,6 +107,7 @@ gulp.task("watch", ["browser-sync"], function() {
     // gulp.watch("src/views/**/*", ["pug"]);
     // gulp.watch("src/styles/**/*.scss", ["styles"]);
     gulp.watch("scripts/**/*", ["scripts"]);
+    gulp.watch("vuex/**/*", ["scripts"]);
 });
 
 gulp.task("default", ["watch"]);
