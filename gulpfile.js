@@ -45,15 +45,18 @@ gulp.task("styles", function() {
 //scripts
 gulp.task("scripts", function() {
     return gulp
-        .src(["scripts/**/*.js"])
+        .src(["scripts/**/*.ts"])
         .pipe(
             webpack({
                 entry: {
-                    app: __dirname + "/scripts/app.js"
+                    app: __dirname + "/scripts/app.ts"
                 },
                 output: {
                     filename: "build.js"
                 },
+                resolve: {
+                    extensions: [".ts", ".tsx", ".js"]
+                  },
                 module: {
                     rules: [
                         {
@@ -66,6 +69,10 @@ gulp.task("scripts", function() {
                                     cacheDirectory: true
                                 }
                             }
+                        },
+                        {
+                            test: /\.tsx?$/,
+                            loader: 'ts-loader'
                         }
                     ]
                 },
