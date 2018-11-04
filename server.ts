@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
 
 const express = require('express');
-const data = require('./server/events.json');
+const data = require('./server/home.json');
 const fallback = require('express-history-api-fallback')
 const path = require('path');
 const app = express();
-
+const fs = require('fs')
 
 app.use(express.static(__dirname + '/'));
-app.use(fallback(__dirname + '/index.html'))
+//app.use(fallback(__dirname + '/index.html'))
 
 let startTime: Date;
 
@@ -70,6 +70,22 @@ app.get('/api/events',(req: Request, res: Response) => {
         res.status(200);
         res.send(data);
     }
+})
+
+// Маршруты для SPA, весь остальной функционал не работает.
+app.get('/api/:component', (req :Request, res: Response) => {
+    const component = req.params.component
+
+    fs.readFile(`./server/${component}.json`, (err: Error, data:JSON) => {
+        if (err) {
+          console.error(err)
+          res.status(400);
+          return
+        }
+
+        res.send(data);
+        res.status(200);
+      })
 })
 
 app.get('*', (req :Request, res: Response) => {

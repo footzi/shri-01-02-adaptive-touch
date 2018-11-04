@@ -1,4 +1,5 @@
 {
+    "title": "Лента событий",
     "events": [
         {
             "type": "info",

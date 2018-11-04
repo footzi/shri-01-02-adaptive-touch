@@ -1,0 +1,28 @@
+<h1 class="l-title b-title">{{title}}</h1>
+<div class="l-grid">
+    {% for item in summary %}
+        <article class="b-article 
+        {% if item.size == 's' %} b-article_size_small {% endif %}
+        {% if item.size == 'l' %} b-article_size_medium {% endif %}
+        {% if item.size == 'b' %} b-article_size_big {% endif %}">
+            <header class="b-article__header">
+                <div class="b-article__header-wrap">
+                    <img src="icons/battery.svg" alt="Дверь открыта">
+                    <h2 class="b-article__title">{{item.title}}</h2>
+                </div>
+                <div class="b-article__about">
+                    <span>{{item.title}}</span>
+                    <span>12:00, Сегодня</span>
+                </div>
+            </header>
+            <div class="b-article__controls">
+                <button class="b-article__close">
+                    <img src="icons/cross.svg" alt="Закрыть карточку">
+                </button>
+                <a href="/" class="b-article__link">
+                    <img src="icons/next-white.svg" alt="Перейти">
+                </a>
+            </div>
+        </article>
+    {% endfor %}
+</div>
