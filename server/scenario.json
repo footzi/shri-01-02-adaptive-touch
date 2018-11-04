@@ -1,6 +1,6 @@
 {
     "title": "Cценарии",
-    "summary": [
+    "scenario": [
         { 
             "title": "Дверь открыта" ,
             "size": "l"

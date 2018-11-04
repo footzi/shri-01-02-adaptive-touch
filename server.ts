@@ -8,7 +8,7 @@ const app = express();
 const fs = require('fs')
 
 app.use(express.static(__dirname + '/'));
-//app.use(fallback(__dirname + '/index.html'))
+app.use(fallback(__dirname + '/index.html'))
 
 let startTime: Date;
 
@@ -73,7 +73,7 @@ app.get('/api/events',(req: Request, res: Response) => {
 })
 
 // Маршруты для SPA, весь остальной функционал не работает.
-app.get('/api/:component', (req :Request, res: Response) => {
+app.post('/api/:component', (req :Request, res: Response) => {
     const component = req.params.component
 
     fs.readFile(`./server/${component}.json`, (err: Error, data:JSON) => {

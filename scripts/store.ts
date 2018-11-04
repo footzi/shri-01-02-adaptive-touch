@@ -35,7 +35,7 @@ store.actions({
     send: function(body: any):void {
         const url = body.url;
 
-        axios.get(`/api/${url}`)
+        axios.post(`/api/${url}`)
             .then((response) => {
                 store.commit('SET_PAGE', url);
                 store.commit('SET_DATA', response.data);
