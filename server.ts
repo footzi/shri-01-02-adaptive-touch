@@ -78,7 +78,7 @@ app.post('/api/:component', (req :Request, res: Response) => {
 
     fs.readFile(`./server/${component}.json`, (err: Error, data:JSON) => {
         if (err) {
-          console.error(err)
+          console.error(err);
           res.status(400);
           return
         }
