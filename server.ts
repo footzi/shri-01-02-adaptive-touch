@@ -1,12 +1,18 @@
 import { Request, Response } from 'express';
 
 const express = require('express');
-const data = require('./events.json');
+const data = require('./server/home.json');
+const fallback = require('express-history-api-fallback')
+const path = require('path');
 const app = express();
+const fs = require('fs')
+
+app.use(express.static(__dirname + '/'));
+app.use(fallback(__dirname + '/index.html'))
 
 let startTime: Date;
 
-/**
+/**  
  * Функция возвращает время с момента запуска сервера.
  */
 const getTime = () => {
@@ -66,10 +72,26 @@ app.get('/api/events',(req: Request, res: Response) => {
     }
 })
 
+// Маршруты для SPA, весь остальной функционал не работает.
+app.post('/api/:component', (req :Request, res: Response) => {
+    const component = req.params.component
+
+    fs.readFile(`./server/${component}.json`, (err: Error, data:JSON) => {
+        if (err) {
+          console.error(err);
+          res.status(400);
+          return
+        }
+
+        res.send(data);
+        res.status(200);
+      })
+})
+
 app.get('*', (req :Request, res: Response) => {
     res.status(404);
     res.send('<h1>Page not found</h1>');
-  });
+});
 
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!');

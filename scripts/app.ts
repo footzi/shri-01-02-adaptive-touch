@@ -1,36 +1,15 @@
-import touch from './touch';
-import Cameras from './cameras';
+import Home from './pages/home';
+import Camera from './pages/camera';
+import Devices from './pages/devices';
+import Scenario from './pages/scenario';
+import Summary from './pages/summary';
 
-/**
- * Подлкючает скрипты для тач событий первого
- */
-touch();
+import Router from './router';
 
-/**
- * Подключение камер на соотвестующей странице
- */
-if (document.querySelector('.j-cameras')) {
-    const cameras = new Cameras();
-
-    const videos = [
-        {
-            target: '#camera-1',
-            url: 'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fsosed%2Fmaster.m3u8'
-        },
-        {
-            target: '#camera-2',
-            url: 'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fcat%2Fmaster.m3u8'
-        },
-        {
-            target: '#camera-3',
-            url: 'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fdog%2Fmaster.m3u8'
-        },
-        {
-            target: '#camera-4',
-            url: 'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fhall%2Fmaster.m3u8'
-        }
-    ];
-
-    cameras.init(videos);
-};
-
+const router = new Router({
+    '/': Home,
+    '/cameras': Camera,
+    '/summary': Summary,
+    '/devices': Devices,
+    '/scenario': Scenario
+});

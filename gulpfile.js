@@ -1,27 +1,18 @@
 const gulp = require("gulp");
-const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const webpack = require("webpack-stream");
 const concat = require("gulp-concat");
 const notify = require("gulp-notify");
 const browserSync = require("browser-sync");
 const autoprefixer = require("gulp-autoprefixer");
-const uglify = require("gulp-uglify");
+const twig = require("gulp-twig");
 
 //html templates
-gulp.task("pug", function() {
+gulp.task("html", function() {
     return gulp
-        .src("src/views/*.pug")
-        .pipe(pug({ pretty: true, basedir: __dirname + "/src/views" }))
-        .on(
-            "error",
-            notify.onError({
-                title: "PUG Compilation Failed",
-                message: "<%= error.message %>"
-            })
-        )
-        .pipe(gulp.dest("public"))
-        .pipe(browserSync.stream());
+        .src("./views/index.twig")
+        .pipe(twig())
+        .pipe(gulp.dest("./"));
 });
 
 //styles
@@ -56,7 +47,7 @@ gulp.task("scripts", function() {
                 },
                 resolve: {
                     extensions: [".ts", ".tsx", ".js"]
-                  },
+                },
                 module: {
                     rules: [
                         {
@@ -72,7 +63,14 @@ gulp.task("scripts", function() {
                         },
                         {
                             test: /\.tsx?$/,
-                            loader: 'ts-loader'
+                            loader: "ts-loader"
+                        },
+                        {
+                            test: /\.twig$/,
+                            exclude: /(node_modules)/,
+                            use: {
+                                loader: "twig-loader"
+                            }
                         }
                     ]
                 },
@@ -104,9 +102,10 @@ gulp.task("browser-sync", function() {
 
 //watch
 gulp.task("watch", ["browser-sync"], function() {
-    // gulp.watch("src/views/**/*", ["pug"]);
+    gulp.watch("views/**/*.twig", ["html"]);
     // gulp.watch("src/styles/**/*.scss", ["styles"]);
     gulp.watch("scripts/**/*", ["scripts"]);
+    gulp.watch("vuex/**/*", ["scripts"]);
 });
 
 gulp.task("default", ["watch"]);
